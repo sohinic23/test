@@ -13,7 +13,7 @@ for i in range(0,num):
 from PIL import Image
 import io
 
-st.title("Image Uploader")
+'''st.title("Image Uploader")
 
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
@@ -29,7 +29,16 @@ if uploaded_file is not None:
     # You can now perform further processing on the 'image' object (Pillow Image object)
     st.write("Image uploaded successfully!")
     # Example: Get image dimensions
-    st.write(f"Image dimensions: {image.width}x{image.height}")
+    st.write(f"Image dimensions: {image.width}x{image.height}")'''
+
+st.title("Image Uploader")
+
+image = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
+
+! pip install -q ultralytics
+from google.colab import drive
+drive.mount('/content/drive')
+! yolo task=detect mode=predict model='/content/best.pt' conf=0.25 source= image
 
 
 st.title("Test App")
