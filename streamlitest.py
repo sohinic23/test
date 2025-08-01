@@ -1,6 +1,6 @@
 import random 
 a = random.randint(1,10)
-print(a)
+st.write(a)
 
 
 import streamlit as st
